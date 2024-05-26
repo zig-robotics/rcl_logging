@@ -1,0 +1,26 @@
+.{
+    .name = "rcl_logging",
+    .version = "2.5.1",
+    .dependencies = .{
+        .rcl_logging = .{
+            .url = "https://github.com/ros2/rcl_logging/archive/refs/heads/iron.tar.gz",
+            .hash = "122097e7ff3efd8e94e94be51358a48a14b40fd09ae0e7a22391b0f15ebef87c9fb0",
+        },
+        .spdlog = .{
+            .url = "https://github.com/gabime/spdlog/archive/refs/heads/v1.x.tar.gz",
+            .hash = "122014675d12471ef2aae8cc94278c69397028a922db22d6da9a04b5d8e34a9aa6d5",
+        },
+        .rcutils = .{
+            .url = "https://github.com/zig-robotics/rcutils/archive/main.tar.gz",
+            .hash = "1220d9ff4d5cfc0d1eb60c345f66f754eee5505f512fb59bb35e6ffa3c25cfd4167c",
+        },
+        .rcpputils = .{
+            .url = "https://github.com/zig-robotics/rcpputils/archive/main.tar.gz",
+            .hash = "1220e0a08fcd944eef23e52fa9edc820ecfcfeb004457d272271fb8bf2b02358cc78",
+        },
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+    },
+}
