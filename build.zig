@@ -12,6 +12,7 @@ pub fn build(b: *std.Build) void {
         .root_module = .{
             .target = target,
             .optimize = optimize,
+            .pic = if (linkage == .dynamic) true else null,
         },
         .name = "rcl_logging_interface",
         .kind = .lib,
@@ -34,6 +35,9 @@ pub fn build(b: *std.Build) void {
         .files = &.{
             "src/logging_dir.c",
         },
+        .flags = &.{
+            "-fvisibility=hidden",
+        },
     });
 
     rcl_logging_interface.installHeadersDirectory(
@@ -47,6 +51,7 @@ pub fn build(b: *std.Build) void {
         .root_module = .{
             .target = target,
             .optimize = optimize,
+            .pic = if (linkage == .dynamic) true else null,
         },
         .name = "rcl_logging_spdlog",
         .kind = .lib,
@@ -71,7 +76,7 @@ pub fn build(b: *std.Build) void {
         .files = &.{
             "src/rcl_logging_spdlog.cpp",
         },
-        .flags = &[_][]const u8{
+        .flags = &.{
             "--std=c++17",
         },
     });
